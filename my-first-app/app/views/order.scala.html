@@ -1,0 +1,21 @@
+@*
+ * msg: 表示するメッセージ
+ * form: オーダーフォーム
+ *@
+@(msg: String, orderForm: Form[bean.OrderForm])
+
+@main("Title:Orders") {
+    
+    <div>
+        /orders
+    </div>
+    <div>
+        @msg
+    </div>
+    <div>
+        hoge
+        @orderForm("type")
+        @radio("hoge", orderForm)
+    </div>
+
+}

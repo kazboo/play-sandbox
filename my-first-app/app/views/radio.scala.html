@@ -1,0 +1,17 @@
+@import helper._
+
+@(name: String, orderForm: Form[bean.OrderForm])
+
+<div>
+    <input type="radio" name=@name value="0" />
+    <label> name </label>
+</div>
+<div>
+    @inputRadioGroup(
+        field = orderForm("type"),
+        options = Seq(
+            "windows" -> "MS-Windows",
+            "mac" -> "Mac OS X"
+            )
+    )
+</div>
