@@ -7,15 +7,36 @@
 @main("Title:Orders") {
     
     <div>
-        /orders
+        Orders Page
     </div>
     <div>
         @msg
     </div>
     <div>
-        hoge
-        @orderForm("type")
-        @radio("hoge", orderForm)
+        orderType: 
+        @orderForm("orderType").value match {
+            case "research" => {
+                <span>研究用</span>
+            }
+            case "work" => {
+                <span>実務用</span>
+            }
+        }
+    </div>
+    <div>
+        userId: @orderForm("userId").value
+    </div>
+    <div>
+        userName: @orderForm("userName").value
+    </div>
+    <div>
+        @tags.radio(orderForm("orderType"),
+            orderTypes = Seq(
+                "research",
+                "work"
+            ),
+            "research"
+        )
     </div>
 
 }

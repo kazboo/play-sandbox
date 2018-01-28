@@ -1,0 +1,22 @@
+@import helper._
+
+@(mediaTypeField: play.api.data.Field, orderTypes: Seq[String], checkedOrderType: String)
+
+@input(mediaTypeField) { (id, name, value, htmlArgs) =>
+
+    <span class="buttonset" id="@(id)">
+
+        @for(orderType <- orderTypes) {
+            <input type="radio"
+                id="@(id)_@orderType"
+                name="@name"
+                value="@orderType"
+                @if(orderType == checkedOrderType) {checked="checked"}
+                @toHtmlArgs(htmlArgs)>
+            <label for="@(id)_@orderType">
+                @orderType
+            </label>
+        }
+    
+    </span>
+}
