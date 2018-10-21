@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('') {
       steps {
-        timestamps()
+        mail(subject: 'test', body: 'test jenkins pipline', from: 'jenkins', to: 'kazboo@me.com')
       }
     }
   }
